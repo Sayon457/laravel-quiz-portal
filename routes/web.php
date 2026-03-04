@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,3 +9,6 @@ Route::get('/', function () {
 
 
 Route::view('/admin-login', 'admin.login');
+
+
+Route::post('/admin-login', [AdminController::class, 'login']);

@@ -11,14 +11,15 @@
 <body class=" bg-gray-100 flex justify-center items-center min-h-screen ">
     <div class=" bg-white rounded-2xl p-8 shadow-lg w-full max-w-md">
         <h2 class="text-4xl text-center text-gray-800 mb-6 font-semibold">Admin Login</h2>
-        <form action="" method="post" class="space-y-4">
+        <form action="/admin-login" method="post" class="space-y-4">
+            @csrf
             <div>
                 <label for="admin-name" class=" font-semibold text-gray-600 mb-1">Admin name</label>
-                <input type="text" name="" id="admin-name" placeholder="Enter Admin Name" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
+                <input type="text" name="username" id="admin-name" placeholder="Enter Admin Name" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
             </div>
             <div>
                 <label for="admin-password" class=" font-semibold text-gray-600 mb-1">Password</label>
-                <input type="text" name="" id="admin-password" placeholder="Enter Admin Name" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
+                <input type="password" name="password" id="admin-password" placeholder="Enter Admin Name" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
             </div>
 
             <div class="flex justify-center">
