@@ -14,7 +14,7 @@
     @if(session('category'))
     <div class="bg-green-800 text-white pl-5">{{session('category')}}</div>
     @endif
-    <div class="bg-gray-100 flex justify-center pt-10">
+    <div class="bg-gray-100 flex flex-col min-h-screen items-center pt-5">
         <div class=" bg-white rounded-2xl p-8 shadow-lg w-full max-w-md">
             <h2 class="text-4xl text-center text-gray-800 mb-6 font-semibold">Add Category</h2>
             <form action="/add-category" method="post" class="space-y-4">
@@ -28,6 +28,30 @@
                     <button type="submit" class="w-1/2 bg-blue-500 rounded-2xl shadow-lg p-2 text-white">Add</button>
                 </div>
             </form>
+        </div>
+        <div class="w-200 mt-5">
+            <h1 class="text-2xl text-blue-500">Category List</h1>
+            <ul class="border border-gray-200 text-center">
+                <li class="p-2 font-bold">
+                    <ul class="flex justify-between">
+                        <li class="w-30">S. No</li>
+                        <li class="w-70">Name</li>
+                        <li class="w-70">Creator</li>
+                        <li class="w-30">Action</li>
+                    </ul>
+                </li>
+                @foreach($categories as $category)
+                <li class="even:bg-gray-200 p-2 text-center">
+                    <ul class="flex justify-between">
+                        <li class="w-30">{{$category->id}}</li>
+                        <li class="w-70">{{$category->name}}</li>
+                        <li class="w-70">{{$category->creator}}</li>
+                        <li class="w-30 text-red-600"><i class="fa fa-trash"></i></li>
+                    </ul>
+                </li>
+                @endforeach
+
+            </ul>
         </div>
     </div>
 </body>
