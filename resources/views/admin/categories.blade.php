@@ -22,7 +22,11 @@
                 <div>
 
                     <input type="text" name="category" id="category" placeholder="Enter Category Name" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
-
+                    @error('category')
+                    <div class="text-red-500">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
                 <div class="flex justify-center">
                     <button type="submit" class="w-1/2 bg-blue-500 rounded-2xl shadow-lg p-2 text-white">Add</button>
@@ -46,7 +50,7 @@
                         <li class="w-30">{{$category->id}}</li>
                         <li class="w-70">{{$category->name}}</li>
                         <li class="w-70">{{$category->creator}}</li>
-                        <li class="w-30 text-red-600"><i class="fa fa-trash"></i></li>
+                        <li class="w-30 text-red-600"><a href="category/delete/{{$category->id}}"><i class="fa fa-trash"></i></a></li>
                     </ul>
                 </li>
                 @endforeach
