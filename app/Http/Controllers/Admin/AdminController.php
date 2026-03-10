@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Category;
+use App\Models\Quiz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -87,5 +88,27 @@ class AdminController extends Controller
             Session::flash('category', "Success : Category " . $request->category . " Deleted.");
         }
         return redirect('admin-categories');
+    }
+
+    function addQuiz()
+    {
+        $categories = Category::get();
+        $admin = Session::get('admin');
+        if ($admin) {
+            $quizName = request('quiz');
+            $category_id = request('category_id');
+
+            if ($quizName && $category_id && !Session::has('quizDetails')) {
+                $quiz = new Quiz();
+                $quiz->name = $quizName;
+                $quiz->category_id = $category_id;
+                if ($quiz->save()) {
+                    Session::put('quizDetails', $quiz);
+                }
+            }
+            return view('addQuiz', ['username' => $admin->username, "categories" => $categories]);
+        } else {
+            return redirect('admin-login');
+        }
     }
 }
