@@ -39,46 +39,47 @@
             @else
             <span class="text-green-500 font-bold">Quiz : {{session('quizDetails')->name}}</span>
             <h2 class="text-4xl text-center text-gray-800 mb-6 font-semibold">Add MCQs</h2>
-            <form action="" method="get" class="space-y-4">
+            <form action="/add-mcq" method="post" class="space-y-4">
+                @csrf
                 <div>
 
-                    <textarea name="quiz" id="category" placeholder="Enter your quiz question" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none"></textarea>
+                    <textarea name="question" id="category" placeholder="Enter your quiz question" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none"></textarea>
 
                 </div>
                 <div>
 
-                    <input type="text" name="quiz" id="category" placeholder="Enter first option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
+                    <input type="text" name="option_a" id="category" placeholder="Enter first option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
 
                 </div>
                 <div>
 
-                    <input type="text" name="quiz" id="category" placeholder="Enter second option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
+                    <input type="text" name="option_b" id="category" placeholder="Enter second option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
 
                 </div>
                 <div>
 
-                    <input type="text" name="" id="category" placeholder="Enter third option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
+                    <input type="text" name="option_c" id="category" placeholder="Enter third option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
 
                 </div>
                 <div>
 
-                    <input type="text" name="fourth_option" id="category" placeholder="Enter fourth option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
+                    <input type="text" name="option_d" id="category" placeholder="Enter fourth option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
 
                 </div>
                 <div>
 
-                    <select name="answer" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
+                    <select name="correct_ans" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
                         <option value="">Select Right Answer</option>
-                        <option value="">A</option>
-                        <option value="">B</option>
-                        <option value="">C</option>
-                        <option value="">D</option>
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="d">D</option>
                     </select>
 
                 </div>
                 <div class="flex justify-center gap-4">
-                    <button type="submit" class="w-1/2 bg-blue-500 rounded-2xl shadow-lg p-2 text-white">Add More</button>
-                    <button type="submit" class="w-1/2 bg-green-600 rounded-2xl shadow-lg p-2 text-white">Add and Submit</button>
+                    <button type="submit" name="submit" value="add-more" class="w-1/2 bg-blue-500 rounded-2xl shadow-lg p-2 text-white">Add More</button>
+                    <button type="done" name="submit" class="w-1/2 bg-green-600 rounded-2xl shadow-lg p-2 text-white">Add and Submit</button>
                 </div>
             </form>
             @endif

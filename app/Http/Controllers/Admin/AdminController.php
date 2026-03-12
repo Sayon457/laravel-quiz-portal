@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Category;
+use App\Models\Mcq;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -109,6 +110,30 @@ class AdminController extends Controller
             return view('addQuiz', ['username' => $admin->username, "categories" => $categories]);
         } else {
             return redirect('admin-login');
+        }
+    }
+    function addMCQs(Request $request)
+    {
+        $mcq = new Mcq();
+        $quiz = Session::get('quizDetails');
+        $admin = Session::get('admin');
+        $mcq->question = $request->question;
+        $mcq->option_a = $request->option_a;
+        $mcq->option_b = $request->option_b;
+        $mcq->option_c = $request->option_c;
+        $mcq->option_d = $request->option_d;
+        $mcq->correct_ans = $request->correct_ans;
+        $mcq->quiz_id = $quiz->id;
+        $mcq->admin_id = $admin->id;
+        $mcq->category_id = $quiz->category_id;
+
+        if ($mcq->save()) {
+            if ($request->submit == "add-more") {
+                return redirect(url()->previous());
+            } else {
+                Session::forget('quizDetails');
+                return redirect('/admin-categories');
+            }
         }
     }
 }
