@@ -20,7 +20,7 @@
 
                 <div>
 
-                    <input type="text" name="quiz" id="category" placeholder="Enter Quiz Name" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
+                    <input type="text" name="quiz" id="category" placeholder="Enter Quiz Name" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none" required>
 
                 </div>
                 <div>
@@ -44,27 +44,39 @@
                 <div>
 
                     <textarea name="question" id="category" placeholder="Enter your quiz question" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none"></textarea>
-
+                    @error('question')
+                    <div class="text-red-500">{{$message}}</div>
+                    @enderror
                 </div>
                 <div>
 
                     <input type="text" name="option_a" id="category" placeholder="Enter first option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
 
+                    @error('option_a')
+                    <div class="text-red-500">{{$message}}</div>
+                    @enderror
                 </div>
                 <div>
 
                     <input type="text" name="option_b" id="category" placeholder="Enter second option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
 
+                    @error('option_b')
+                    <div class="text-red-500">{{$message}}</div>
+                    @enderror
                 </div>
                 <div>
 
                     <input type="text" name="option_c" id="category" placeholder="Enter third option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
-
+                    @error('option_c')
+                    <div class="text-red-500">{{$message}}</div>
+                    @enderror
                 </div>
                 <div>
 
                     <input type="text" name="option_d" id="category" placeholder="Enter fourth option" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
-
+                    @error('option_d')
+                    <div class="text-red-500">{{$message}}</div>
+                    @enderror
                 </div>
                 <div>
 
@@ -75,11 +87,14 @@
                         <option value="c">C</option>
                         <option value="d">D</option>
                     </select>
-
+                    @error('correct_ans')
+                    <div class="text-red-500">{{$message}}</div>
+                    @enderror
                 </div>
-                <div class="flex justify-center gap-4">
-                    <button type="submit" name="submit" value="add-more" class="w-1/2 bg-blue-500 rounded-2xl shadow-lg p-2 text-white">Add More</button>
-                    <button type="done" name="submit" class="w-1/2 bg-green-600 rounded-2xl shadow-lg p-2 text-white">Add and Submit</button>
+                <div class="flex flex-col items-center gap-4">
+                    <button type="submit" name="submit" value="add-more" class="w-full bg-blue-500 rounded-2xl shadow-lg p-2 text-white">Add More</button>
+                    <button type="done" name="submit" class="w-full bg-green-600 rounded-2xl shadow-lg p-2 text-white">Add and Submit</button>
+                    <a href="/end-quiz" class="w-full bg-red-600 rounded-2xl shadow-lg p-2 text-white text-center">Finish Quiz</a>
                 </div>
             </form>
             @endif

@@ -114,6 +114,15 @@ class AdminController extends Controller
     }
     function addMCQs(Request $request)
     {
+        $request->validate([
+            "question" => "required | min:5",
+            "option_a" => "required",
+            "option_b" => "required",
+            "option_c" => "required",
+            "option_d" => "required",
+            "correct_ans" => "required",
+
+        ]);
         $mcq = new Mcq();
         $quiz = Session::get('quizDetails');
         $admin = Session::get('admin');
@@ -135,5 +144,10 @@ class AdminController extends Controller
                 return redirect('/admin-categories');
             }
         }
+    }
+    function endQuiz()
+    {
+        Session::forget('quizDetails');
+        return redirect('/admin-categories');
     }
 }
