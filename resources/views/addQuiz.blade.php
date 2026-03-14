@@ -38,6 +38,11 @@
             </form>
             @else
             <span class="text-green-500 font-bold">Quiz : {{session('quizDetails')->name}}</span>
+            <p class="text-green-500 font-bold">Total MCQs : {{$totalMCQs}}
+                @if($totalMCQs>0)
+                <a href="show-quiz/{{session('quizDetails')->id}}" class="text-yellow-500 text-sm">Show MCQs</a>
+                @endif
+            </p>
             <h2 class="text-4xl text-center text-gray-800 mb-6 font-semibold">Add MCQs</h2>
             <form action="/add-mcq" method="post" class="space-y-4">
                 @csrf
