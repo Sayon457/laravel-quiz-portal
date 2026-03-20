@@ -13,21 +13,26 @@
     <x-navbar name={{$username}}></x-navbar>
 
     <div class="bg-gray-100 flex flex-col min-h-screen items-center pt-5">
-        <h2 class="text-4xl text-center text-gray-800 mb-6 font-semibold">Quiz Name : {{$quizName}} <a href="/add-quiz" class="text-yellow-500 text-sm">Back</a></h2>
+        <h2 class="text-4xl text-center text-gray-800 mb-6 font-semibold">Category Name : {{$category}} <a href="/add-quiz" class="text-yellow-500 text-sm">Back</a></h2>
 
         <div class="w-200 mt-5">
             <ul class="border border-gray-200 text-center">
                 <li class="p-2 font-bold">
                     <ul class="flex justify-between">
-                        <li class="w-30">MCQ Id</li>
-                        <li class="w-170">Question</li>
+                        <li class="w-30">Quiz Id</li>
+                        <li class="w-140">Name</li>
+                        <li class="w-30">Action</li>
                     </ul>
                 </li>
-                @foreach($mcqs as $mcq)
+                @foreach($quizData as $item)
                 <li class="even:bg-gray-200 p-2 text-center">
                     <ul class="flex justify-between">
-                        <li class="w-30">{{$mcq->id}}</li>
-                        <li class="w-170">{{$mcq->question}}</li>
+                        <li class="w-30">{{$item->id}}</li>
+                        <li class="w-140">{{$item->name}}</li>
+                        <li class="w-30">
+
+                            <a href="/show-quiz/{{$item->id}}/{{$item->name}}"><i class="fa fa-eye text-blue-500"></i></a>
+                        </li>
 
                     </ul>
                 </li>

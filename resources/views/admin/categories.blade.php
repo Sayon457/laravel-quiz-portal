@@ -50,7 +50,10 @@
                         <li class="w-30">{{$category->id}}</li>
                         <li class="w-70">{{$category->name}}</li>
                         <li class="w-70">{{$category->creator}}</li>
-                        <li class="w-30 text-red-600"><a href="category/delete/{{$category->id}}"><i class="fa fa-trash"></i></a></li>
+                        <li class="w-30 flex gap-2 justify-center">
+                            <a href="category/delete/{{$category->id}}"><i class="fa fa-trash  text-red-600"></i></a>
+                            <a href="quiz-list/{{$category->id}}/{{$category->name}}"><i class="fa fa-eye text-blue-500"></i></a>
+                        </li>
                     </ul>
                 </li>
                 @endforeach
