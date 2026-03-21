@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,3 +32,6 @@ Route::get('end-quiz', [AdminController::class, 'endQuiz']);
 Route::get('show-quiz/{id}/{quizName}', [AdminController::class, 'showQuiz']);
 
 Route::get('quiz-list/{id}/{category}', [AdminController::class, 'quizList']);
+
+
+Route::get('/', [UserController::class, 'index']);
