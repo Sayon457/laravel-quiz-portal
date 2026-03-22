@@ -30,6 +30,7 @@
                     <ul class="flex justify-between">
                         <li class="w-30">S. No</li>
                         <li class="w-70">Name</li>
+                        <li class="w-70">Total Quiz</li>
                         <li class="w-30">Action</li>
                     </ul>
                 </li>
@@ -38,9 +39,10 @@
                     <ul class="flex justify-between">
                         <li class="w-30">{{$key+1}}</li>
                         <li class="w-70">{{$category->name}}</li>
+                        <li class="w-70">{{$category->quizzes_count}}</li>
                         <li class="w-30 flex gap-2 justify-center">
 
-                            <a href="quiz-list/{{$category->id}}/{{$category->name}}"><i class="fa fa-eye text-blue-500"></i></a>
+                            <a href="user-quiz-list/{{$category->id}}/{{$category->name}}"><i class="fa fa-eye text-blue-500"></i></a>
                         </li>
                     </ul>
                 </li>
