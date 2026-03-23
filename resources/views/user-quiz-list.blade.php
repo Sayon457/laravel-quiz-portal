@@ -20,7 +20,8 @@
                 <li class="p-2 font-bold">
                     <ul class="flex justify-between">
                         <li class="w-30">Quiz Id</li>
-                        <li class="w-140">Name</li>
+                        <li class="w-110">Name</li>
+                        <li class="w-30">Mcq Count</li>
                         <li class="w-30">Action</li>
                     </ul>
                 </li>
@@ -28,10 +29,11 @@
                 <li class="even:bg-gray-200 p-2 text-center">
                     <ul class="flex justify-between">
                         <li class="w-30">{{$item->id}}</li>
-                        <li class="w-140">{{$item->name}}</li>
+                        <li class="w-110">{{$item->name}}</li>
+                        <li class="w-30">{{$item->mcq_count}}</li>
                         <li class="w-30">
 
-                            <a href="" class="text-green-500 font-bold">Start</a>
+                            <a href="/start-quiz/{{$item->id}}/{{$item->name}}" class="text-green-500 font-bold">Start</a>
                         </li>
 
                     </ul>

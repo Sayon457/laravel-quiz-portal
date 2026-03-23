@@ -37,3 +37,4 @@ Route::get('quiz-list/{id}/{category}', [AdminController::class, 'quizList']);
 Route::get('/', [UserController::class, 'index']);
 
 Route::get('user-quiz-list/{id}/{category}', [UserController::class, 'userQuizList']);
+Route::get('start-quiz/{id}/{name}', [UserController::class, 'startQuiz']);
