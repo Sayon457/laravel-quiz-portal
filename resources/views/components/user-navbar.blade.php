@@ -4,6 +4,7 @@
         <a href="/" class=" text-green-900 hover:text-blue-500 cursor-pointer">Home</a>
         <a href="/admin-categories" class=" text-green-900 hover:text-blue-500 cursor-pointer">Categories</a>
         <a href="" class=" text-green-900 hover:text-blue-500 cursor-pointer">Login</a>
+        <a href="/user-signup" class=" text-green-900 hover:text-blue-500 cursor-pointer">SignUp</a>
         <a href="/admin-logout" class=" text-green-900 hover:text-blue-500 cursor-pointer">Blog</a>
     </div>
 </nav>

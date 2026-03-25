@@ -23,7 +23,7 @@
             </div>
             <div>
                 <label for="admin-password" class=" font-semibold text-gray-600 mb-1">Password</label>
-                <input type="password" name="password" id="admin-password" placeholder="Enter Admin Name" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
+                <input type="password" name="password" id="admin-password" placeholder="Enter Admin Password" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
                 @error('password')
                 <div class="text-red-500">{{$message}}</div>
                 @enderror

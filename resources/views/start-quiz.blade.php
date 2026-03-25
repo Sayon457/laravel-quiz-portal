@@ -16,7 +16,7 @@
         <h1 class="text-4xl text-center text-green-800 mb-6 font-semibold">{{$quizName}} </h1>
         <h2 class="text-lg text-center text-green-800 mb-6 font-semibold">This Quiz contains {{$quizCount}} Questions and no limit to attempt this Quiz</h2>
         <h1 class="text-4xl text-center text-green-800 mb-6 font-semibold">Good Luck</h1>
-        <button type="submit" class="bg-blue-500 rounded-md px-4 py-2 text-white my-5">Login/SignUp to Start Quiz</button>
+        <button type="submit" class="bg-blue-500 rounded-md px-4 py-2 text-white my-5 cursor-pointer">Login/SignUp to Start Quiz</button>
     </div>
 </body>
 
