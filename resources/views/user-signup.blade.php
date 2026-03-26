@@ -18,9 +18,9 @@
                 @csrf
                 <div>
 
-                    <label for="username" class=" font-semibold text-gray-600 mb-1">User Name</label>
-                    <input type="text" name="username" id="username" placeholder="Enter User Name" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
-                    @error('username')
+                    <label for="name" class=" font-semibold text-gray-600 mb-1">User Name</label>
+                    <input type="text" name="name" id="name" placeholder="Enter User Name" class="w-full px-4 border border-gray-300 rounded-lg py-2 outline-none">
+                    @error('name')
                     <div class="text-red-500">{{$message}}</div>
                     @enderror
                 </div>
@@ -49,7 +49,7 @@
                 @enderror
 
                 <div class="flex justify-center">
-                    <button type="submit" class="w-1/2 bg-blue-500 rounded-2xl shadow-lg p-2 text-white">SignUp</button>
+                    <button type="submit" class="w-1/2 bg-blue-500 rounded-2xl shadow-lg p-2 cursor-pointer text-white">SignUp</button>
                 </div>
             </form>
         </div>
