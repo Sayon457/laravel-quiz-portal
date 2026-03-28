@@ -7,7 +7,7 @@
         <a href="" class=" text-green-900 hover:text-blue-500 cursor-pointer">Welcome, {{session('user')->name}}</a>
         <a href="/user-logout" class=" text-green-900 hover:text-blue-500 cursor-pointer">Logout</a>
         @else
-        <a href="" class=" text-green-900 hover:text-blue-500 cursor-pointer">Login</a>
+        <a href="/user-login" class=" text-green-900 hover:text-blue-500 cursor-pointer">Login</a>
         <a href="/user-signup" class=" text-green-900 hover:text-blue-500 cursor-pointer">SignUp</a>
         @endif
         <a href="/admin-logout" class=" text-green-900 hover:text-blue-500 cursor-pointer">Blog</a>
