@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Quiz;
 use App\Models\Mcq;
 use App\Models\User;
+use App\Models\Record;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -29,7 +30,7 @@ class UserController extends Controller
     {
         $quizCount =  Mcq::where('quiz_id', $id)->count();
         $mcqs = Mcq::where('quiz_id', $id)->get();
-        Session::put('firstMCQ', $mcqs[0]);
+        Session::put('firstMcq', $mcqs[0]);
         $quizName = $name;
         return view('start-quiz', ['quizName' => $quizName, 'quizCount' => $quizCount]);
     }
@@ -92,14 +93,23 @@ class UserController extends Controller
     }
     function mcq($id, $name)
     {
-        $currentQuiz = [];
-        $currentQuiz['totalMcq'] = MCQ::where('quiz_id', Session::get('firstMCQ')->quiz_id)->count();
-        $currentQuiz['currentMcq'] = 1;
-        $currentQuiz['quizName'] = $name;
-        $currentQuiz['quizId'] = Session::get('firstMCQ')->quiz_id;
-        Session::put('currentQuiz', $currentQuiz);
-        $mcqData = MCQ::find($id);
-        return view('mcq-page', ['quizName' => $name, 'mcqData' => $mcqData]);
+        $record = new Record();
+        $record->user_id = Session::get('user')->id;
+        $record->quiz_id = Session::get('firstMcq')->quiz_id;
+        $record->status = 1;
+        if ($record->save()) {
+
+            $currentQuiz = [];
+            $currentQuiz['totalMcq'] = MCQ::where('quiz_id', Session::get('firstMcq')->quiz_id)->count();
+            $currentQuiz['currentMcq'] = 1;
+            $currentQuiz['quizName'] = $name;
+            $currentQuiz['quizId'] = Session::get('firstMcq')->quiz_id;
+            Session::put('currentQuiz', $currentQuiz);
+            $mcqData = MCQ::find($id);
+            return view('mcq-page', ['quizName' => $name, 'mcqData' => $mcqData]);
+        } else {
+            return "Something went wrong.";
+        }
     }
 
     function submitAndNext($id)
