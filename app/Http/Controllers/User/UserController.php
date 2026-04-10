@@ -97,7 +97,7 @@ class UserController extends Controller
         $record = new Record();
         $record->user_id = Session::get('user')->id;
         $record->quiz_id = Session::get('firstMcq')->quiz_id;
-        $record->status = 1;
+        $record->status = 0;
         if ($record->save()) {
 
             $currentQuiz = [];
@@ -150,9 +150,17 @@ class UserController extends Controller
         if ($mcqData) {
             return view('mcq-page', ['quizName' => $currentQuiz['quizName'], 'mcqData' => $mcqData]);
         } else {
+            // Update record status to 2 (completed)
+
             $resultData = MCQ_Record::WithMCQ()->where('record_id', $currentQuiz['recordId'])->get();
             $correctAnswers = MCQ_Record::where([['record_id', $currentQuiz['recordId']], ['is_correct', '=', 1]])->count();
+            Record::find($currentQuiz['recordId'])->update(['status' => 1]);
             return view('quiz-result', ['resultData' => $resultData, 'correctAnswers' => $correctAnswers]);
         }
+    }
+    function userDetails()
+    {
+        $quizRecord = Record::WithQuiz()->where('user_id', Session::get('user')->id)->get();
+        return view('user-details', ['quizRecord' => $quizRecord]);
     }
 }
