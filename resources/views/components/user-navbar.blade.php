@@ -2,7 +2,7 @@
     <div class="text-2xl text-green-900 hover:text-blue-500 cursor-pointer"><a href="/">Quiz Portal</a></div>
     <div class="space-x-4">
         <a href="/" class=" text-green-900 hover:text-blue-500 cursor-pointer">Home</a>
-        <a href="/admin-categories" class=" text-green-900 hover:text-blue-500 cursor-pointer">Categories</a>
+        <a href="/" class=" text-green-900 hover:text-blue-500 cursor-pointer">Categories</a>
         @if(session('user'))
         <a href="/user-details" class=" text-green-900 hover:text-blue-500 cursor-pointer">Welcome, {{session('user')->name}}</a>
         <a href="/user-logout" class=" text-green-900 hover:text-blue-500 cursor-pointer">Logout</a>

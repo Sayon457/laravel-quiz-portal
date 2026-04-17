@@ -36,7 +36,7 @@ class AdminController extends Controller
             );
         }
         Session::put('admin', $admin);
-        return redirect('/dashboard');
+        return redirect('dashboard');
     }
 
     function dashboard()
