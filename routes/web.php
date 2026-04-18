@@ -38,6 +38,7 @@ Route::get('/user-signup-quiz', [UserController::class, 'userSignUpQuiz']);
 Route::view('user-login', 'user-login');
 Route::post('/user-login', [UserController::class, 'userLogin']);
 Route::get('/user-login-quiz', [UserController::class, 'userLoginQuiz']);
+Route::get('/search-quiz', [UserController::class, 'searchQuiz']);
 
 Route::middleware('CheckUserAuth')->group(function () {
     Route::get('/mcq/{id}/{name}', [UserController::class, 'mcq']);

@@ -19,8 +19,10 @@
         </h1>
         <div class="w-full max-w-md">
             <div class="relative">
-                <input type="text" placeholder="Search quiz..." class="w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-2xl shadow">
-                <button class="absolute right-2 top-3"><i class="fa fa-search"></i></button>
+                <form action="/search-quiz" method="get">
+                    <input type="text" name="search" placeholder="Search quiz..." class="w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-2xl shadow">
+                    <button class="absolute right-2 top-3"><i class="fa fa-search"></i></button>
+                </form>
             </div>
         </div>
         <div class="w-200 mt-5">
