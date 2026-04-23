@@ -39,6 +39,8 @@
                 <div class="flex justify-center">
                     <button type="submit" class="w-1/2 bg-blue-500 rounded-2xl shadow-lg p-2 cursor-pointer text-white">Login</button>
                 </div>
+
+                <a href="/user-forgot-password" class="text-green-500">Forgot Password?</a>
             </form>
         </div>
     </div>

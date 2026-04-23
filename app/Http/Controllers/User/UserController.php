@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Mail\UserForgotPassword;
 use App\Mail\VerifyUser;
 use App\Models\Category;
 use App\Models\Quiz;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
-
+use Symfony\Component\Mime\Email;
 
 class UserController extends Controller
 {
@@ -190,5 +191,19 @@ class UserController extends Controller
                 return redirect('/');
             }
         }
+    }
+    function userForgotPassword(Request $request)
+    {
+
+        $link = Crypt::encryptString($request->email);
+        $link = url('/user-forgot-password/' . $link);
+        Mail::to($request->email)->send(new UserForgotPassword($link));
+        return redirect("/");
+    }
+
+    function userResetPassword($email)
+    {
+        $orgEmail = Crypt::decryptString($email);
+        echo $orgEmail;
     }
 }
